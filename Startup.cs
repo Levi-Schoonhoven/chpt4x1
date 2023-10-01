@@ -34,19 +34,6 @@ namespace chpt4x1
                 options.UseSqlServer(
                     Configuration.GetConnectionString("MovieContext")));
         }
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseDeveloperExceptionPage();
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");
-            });
-        }
+       
     }
 }
