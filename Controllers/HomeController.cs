@@ -3,22 +3,21 @@ using chpt4x1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
+
 namespace chpt4x1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       private MovieContext context { get; set; }
 
-        
-
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController (MovieContext ctx)
         {
-            _logger = logger;
+            context = ctx;
         }
 
         public IActionResult Index()
         {
+            var movies = context.Movies.OrderBy(m => m.Name).ToList();
             return View();
         }
 
