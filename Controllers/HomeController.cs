@@ -1,4 +1,5 @@
 ﻿
+using chpt4x1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,6 +8,9 @@ namespace chpt4x1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        
+
 
         public HomeController(ILogger<HomeController> logger)
         {
