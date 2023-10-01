@@ -2,7 +2,8 @@
 using chpt4x1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-//using MovieList.Models;
+//using MovieList.Models;'
+using Microsoft.EntityFrameworkCore;
 
 namespace chpt4x1.Controllers
 {
@@ -17,8 +18,8 @@ namespace chpt4x1.Controllers
 
         public IActionResult Index()
         {
-            var movies = context.Movies.OrderBy(m => m.Name).ToList();
-            return View();
+            var movies = context.Movies.Include(m => m.Genre).OrderBy(m => m.Name).ToList();
+            return View(movies);
         }
 
        

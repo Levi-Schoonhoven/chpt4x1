@@ -1,8 +1,9 @@
-﻿@model Movie
+﻿@using MovieList.Models;
+@model Movie
 
 
 @{
-    string title = ViewBag.Action + " Movie";
+    string title = ViewBag.Action + "Movie";
     ViewBag.Title = title;
 
 }
@@ -22,6 +23,20 @@
     <div class="form-group">
         <label asp-for="Rating">Rating</label>Y
         <input asp-for="Rating" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GenreId">Genre</label>
+        <select asp-for="GenreId" class="form-control">
+            <option value=""> select a genre</option>
+            @foreach (Genre g in ViewBag.Genres)
+            {
+                <option value="@g.GenreId">@g.Name</option>
+            }
+
+
+        </select>
+
     </div>
 
     <input type="hidden" asp-for="MovieId"/>
